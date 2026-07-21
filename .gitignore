@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Large Data & Vector DB (Do not push to remote)
+data/vectordb/qdrant_toc_baseline_BACKUP_CHUNK1000/
+data/vectordb/qdrant_toc_finetuned/
+data/vectordb/*.json
+data/finetune_dataset/*.jsonl
+data/finetune_dataset/*.json
+data/evaluation/
+data/pages/
+data/preprocess_result/
+data/*.pdf
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# Build / Output
+build/
+dist/
+*.egg-info/

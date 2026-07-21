@@ -1,0 +1,50 @@
+# ==========================================
+# DEPENDENCIES: AGENTIC RAG SIRAH NABAWIYAH
+# ==========================================
+
+# ── 1. OCR & Pemrosesan PDF (Tahap Build Knowledge) ──
+# (Digunakan di src/build_knowledge/ocr_paddle.py)
+paddleocr
+paddlepaddle
+pdf2image
+opencv-python==4.6.0.66
+Pillow==10.0.0
+PyMuPDF
+
+# ── 2. Vector Database & Embeddings (Tahap RAG Baseline) ──
+# (Digunakan di config.py, build_vectordb.py, dll)
+qdrant-client
+sentence-transformers
+torch
+numpy==1.23.5
+
+# ── 3. LLM API Clients (Generator & Evaluator) ──
+# (Digunakan untuk memanggil Qwen, Llama, Gemini via API)
+openai            # Untuk akses OpenRouter API / vLLM
+google-genai      # Untuk akses Gemini-2.0 Flash (Evaluator)
+groq              # (Opsional) Jika menggunakan Llama-3 via Groq
+python-dotenv     # Membaca token dari .env
+
+# ── 4. Evaluasi & Metrik (Tahap Evaluasi RAG) ──
+# (Digunakan di evaluasi BERTScore, plotting grafik)
+bert-score
+matplotlib
+seaborn
+pandas
+openpyxl
+huggingface_hub
+
+# ── 5. Fine-Tuning LLM & Embeddings (Tahap Eksperimen) ──
+# (Digunakan di finetune_evaluator.py dan finetune_embedding.py)
+# Catatan: Sangat disarankan diinstal di env Linux (RunPod/Colab)
+unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git
+trl
+transformers
+datasets
+accelerate
+bitsandbytes
+
+# ── 6. Utilitas Umum ──
+tqdm==4.67.1
+pyclipper==1.4.0
+shapely==2.0.1
