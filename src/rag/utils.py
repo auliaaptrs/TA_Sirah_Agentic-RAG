@@ -46,10 +46,10 @@ def init_vectordb():
 
     print("Memuat model embedding...")
     try:
-        # Paksa CPU agar VRAM sepenuhnya tersedia untuk Ollama 70B
-        # Embedding inference untuk 1 query tetap cepat di CPU
-        model = SentenceTransformer(EMBEDDING_MODEL, device="cuda")
-        print(f"   [OK] Embedding model loaded: {EMBEDDING_MODEL} (device: cuda)")
+        import torch
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        model = SentenceTransformer(EMBEDDING_MODEL, device=device)
+        print(f"   [OK] Embedding model loaded: {EMBEDDING_MODEL} (device: {device})")
     except Exception as e:
         print(f"   [ERR] Gagal load embedding: {e}")
         sys.exit(1)
