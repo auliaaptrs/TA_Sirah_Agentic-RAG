@@ -1,6 +1,7 @@
 # ==========================================
 # DEPENDENCIES: STREAMLIT DEPLOYMENT ONLY
 # ==========================================
+--extra-index-url https://download.pytorch.org/whl/cpu
 streamlit
 qdrant-client
 sentence-transformers
