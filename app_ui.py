@@ -18,9 +18,10 @@ import src.rag.utils as rag_utils
 rag_utils.QDRANT_PATH = rag_config.QDRANT_PATH
 rag_utils.EMBEDDING_MODEL = rag_config.EMBEDDING_MODEL
 
-# [NEW] Menggunakan GPU Kampus via Cloudflare Tunnel
+# [NEW] Menggunakan GPU Kampus via Cloudflare Tunnel (Dinamis tanpa perlu commit)
 rag_config.LLM_PROVIDER = "ollama"
-rag_config.OLLAMA_BASE_URL = "https://proper-loved-mins-hood.trycloudflare.com"
+# Mengambil link dari Streamlit Secrets (jika tidak ada, fallback ke localhost)
+rag_config.OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
 from src.rag.utils import init_vectordb, init_llm
 from src.rag.real_agentic import real_agentic_rag_query
