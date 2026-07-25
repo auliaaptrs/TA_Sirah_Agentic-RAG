@@ -6,6 +6,7 @@ streamlit
 qdrant-client
 sentence-transformers
 torch
+torchvision
 numpy
 openai
 google-genai
