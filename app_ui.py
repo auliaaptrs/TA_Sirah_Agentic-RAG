@@ -91,7 +91,7 @@ def render_styled_answer(text: str, question: str = ""):
 st.set_page_config(page_title="Sirah Nabawiyah AI", page_icon="🕌", layout="wide")
 
 st.title("🕌 Agentic RAG: Sirah Nabawiyah")
-st.markdown("Sistem Tanya Jawab Interaktif berbasis kitab *Ar-Raheeq Al-Makhtum* menggunakan arsitektur **Real Agentic RAG (Baseline Embedding)**.")
+st.markdown("Sistem Tanya Jawab Interaktif berbasis kitab *Ar-Raheeq Al-Makhtum* menggunakan arsitektur **Agentic RAG**.")
 
 # -- Initialize Models (Cached) --
 @st.cache_resource
