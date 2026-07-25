@@ -190,8 +190,12 @@ def call_llm(llm_client, prompt: str, temperature: float = 0.2, max_tokens: int 
                     timeout=120,
                 )
                 if r.status_code == 200:
-                    return r.json().get("response", "")
-                raise Exception(f"Ollama Error: {r.status_code}")
+                    try:
+                        return r.json().get("response", "")
+                    except Exception as e:
+                        print(f"RAW OLLAMA RESPONSE: {r.text}")
+                        raise Exception(f"Ollama JSON Error: {str(e)} | Raw: {r.text[:100]}")
+                raise Exception(f"Ollama Error: {r.status_code} | {r.text[:100]}")
 
         except Exception as e:
             if attempt < max_retries and any(
