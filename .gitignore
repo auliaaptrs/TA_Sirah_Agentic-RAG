@@ -21,7 +21,8 @@ venv.bak/
 .DS_Store
 
 # Large Data & Vector DB (Do not push to remote)
-data/vectordb/qdrant_toc_baseline_BACKUP_CHUNK1000/
+# Qdrant Baseline diizinkan agar bisa di-deploy ke Streamlit (ukurannya kecil ~22 MB)
+# data/vectordb/qdrant_toc_baseline_BACKUP_CHUNK1000/
 data/vectordb/qdrant_toc_finetuned/
 data/vectordb/*.json
 data/finetune_dataset/*.jsonl
