@@ -64,11 +64,17 @@ def get_reranker():
     if _RERANKER_MODEL is None:
         try:
             from sentence_transformers import CrossEncoder
+            try:
+                import torch
+                device = "cuda" if torch.cuda.is_available() else "cpu"
+            except Exception:
+                device = "cpu"
+            
             _RERANKER_MODEL = CrossEncoder(
                 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1',
-                device="cuda"
+                device=device
             )
-            print("[OK] Reranker loaded: mmarco-mMiniLMv2-L12-H384-v1")
+            print(f"[OK] Reranker loaded: mmarco-mMiniLMv2-L12-H384-v1 (device: {device})")
         except ImportError:
             print("❌ sentence-transformers tidak terinstall! Reranking dilewati.")
             return None
