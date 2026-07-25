@@ -185,6 +185,7 @@ def call_llm(llm_client, prompt: str, temperature: float = 0.2, max_tokens: int 
                 model_to_use = override_model if override_model else OLLAMA_MODEL
                 r = requests.post(
                     f"{OLLAMA_BASE_URL}/api/generate",
+                    headers={"ngrok-skip-browser-warning": "1", "Content-Type": "application/json"},
                     json={"model": model_to_use, "prompt": prompt, "stream": False,
                           "options": {"temperature": temperature, "num_predict": max_tokens, "num_ctx": 8192}},
                     timeout=120,
