@@ -18,6 +18,9 @@ import src.rag.utils as rag_utils
 rag_utils.QDRANT_PATH = rag_config.QDRANT_PATH
 rag_utils.EMBEDDING_MODEL = rag_config.EMBEDDING_MODEL
 
+# [NEW] Memaksa penggunaan API Cloud (Groq) agar berjalan mulus di Streamlit Server
+rag_config.LLM_PROVIDER = "groq"
+
 from src.rag.utils import init_vectordb, init_llm
 from src.rag.real_agentic import real_agentic_rag_query
 
