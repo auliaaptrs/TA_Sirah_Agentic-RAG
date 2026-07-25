@@ -46,10 +46,9 @@ def init_vectordb():
 
     print("Memuat model embedding...")
     try:
-        import torch
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        model = SentenceTransformer(EMBEDDING_MODEL, device=device)
-        print(f"   [OK] Embedding model loaded: {EMBEDDING_MODEL} (device: {device})")
+        # Memaksa CPU murni agar tidak memicu error driver NVIDIA di Streamlit
+        model = SentenceTransformer(EMBEDDING_MODEL, device="cpu")
+        print(f"   [OK] Embedding model loaded: {EMBEDDING_MODEL} (device: cpu)")
     except Exception as e:
         print(f"   [ERR] Gagal load embedding: {e}")
         sys.exit(1)
